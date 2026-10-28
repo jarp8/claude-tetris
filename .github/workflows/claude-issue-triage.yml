@@ -51,7 +51,7 @@ jobs:
                - Prioridad (exactamente 1): `priority:high`, `priority:medium` o `priority:low`.
                - Opcionales: `good first issue` si es simple y acotado; `duplicate` si `gh search issues` muestra un duplicado claro (menciónalo en el diagnóstico); `invalid` solo si claramente no es un issue válido.
                Si es una re-ejecución (el issue fue editado), quita con `--remove-label` los labels de tipo/área/prioridad que ya no apliquen y agrega los nuevos con `--add-label` vía `gh issue edit ISSUE_NUMBER --repo REPO`. No toques otros labels.
-            4. Publica UN solo comentario de diagnóstico, en español, con:
+            4. Publica UN solo comentario de diagnóstico, en español, redactado en Markdown válido para GitHub (GFM): encabezados `##`, listas `-`, checklists `- [ ]`, código inline con backticks y bloques de código con ``` y lenguaje; sin HTML salvo el marcador inicial. Publícalo con:
                `gh issue comment ISSUE_NUMBER --repo REPO --edit-last --create-if-none --body-file -`
                pasando el cuerpo por stdin (heredoc). Así, en re-ejecuciones se actualiza el mismo comentario en vez de crear otro. El cuerpo debe empezar con la línea `<!-- claude-triage -->` y seguir esta estructura:
                ## Diagnóstico
